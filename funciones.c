@@ -2,13 +2,13 @@
 #include <string.h>
 #include "funciones.h"
 
-void leerArticulo(char articulo[])
+void leerArticulo(char *articulo)
 {
     printf("Ingrese la descripcion del articulo: ");
     scanf("%s",articulo);
 }
 
-int buscarOCrearArticulos(articulos_t articulos[], char articulo[]) //Si no encuentra los crea
+int buscarOCrearArticulos(articulos_t *articulos, char *articulo) //Si no encuentra los crea
 {
     int i, articulo_index;
     i=0;
@@ -20,7 +20,7 @@ int buscarOCrearArticulos(articulos_t articulos[], char articulo[]) //Si no encu
     return articulo_index;
 }
 
-void cargarArticulos(articulos_t articulos[], int indice)
+void cargarArticulos(articulos_t *articulos, int indice)
 {
     int i,sucursal, cantidad;
     
@@ -35,7 +35,7 @@ void cargarArticulos(articulos_t articulos[], int indice)
         for(i=0;i<3;i++) articulos[indice].total += articulos[indice].cantidad_sucursal[i];
 }
 
-void agregarArticulos(articulos_t articulos[])
+void agregarArticulos(articulos_t *articulos)
 {  
     int  opc=0, indice;
     char articulo[90];
@@ -54,7 +54,7 @@ void agregarArticulos(articulos_t articulos[])
 
 
 
-void imprimirArticulos(articulos_t articulos[])
+void imprimirArticulos(articulos_t *articulos)
 {
     int i = 0;
     printf("Articulo\tSucursal 1\tSucursal 2\tSucursal 3\tTotal\n");
@@ -71,7 +71,7 @@ void cambiarArticulos(articulos_t  *a, articulos_t  *b)
     *b = temp;
 }
 
-void ordenarArticulos(articulos_t articulos[])
+void ordenarArticulos(articulos_t *articulos)
 {
     int  opc=0, i, articulo_index;
     char articulo[90];
