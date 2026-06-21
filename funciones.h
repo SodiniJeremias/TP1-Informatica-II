@@ -13,11 +13,11 @@ typedef struct {
     int total;
 }articulos_t;
 
-void agregarArticulos(articulos_t articulos[]);
-void imprimirArticulos(articulos_t articulos[]);
-void ordenarArticulos(articulos_t articulos[]);
-void leerArticulo(char articulo[]);
-int buscarOCrearArticulos(articulos_t articulos[], char articulo[]);
-void cargarArticulos(articulos_t articulos[], int indice);
+void agregarArticulos(articulos_t *articulos);
+void imprimirArticulos(articulos_t *articulos);
+void ordenarArticulos(articulos_t *articulos);
+void leerArticulo(char *articulo);
+int buscarOCrearArticulos(articulos_t *articulos, char *articulo);
+void cargarArticulos(articulos_t *articulos, int indice);
 
 #endif
