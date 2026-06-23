@@ -8,8 +8,8 @@ int main(void)
     printf("Bienvendio al final de Info 1\n\n");
 
     articulos_t articulos[CANT_ARTICULOS] = {0};
-    agregarArticulos(articulos);
-    imprimirArticulos(articulos);
-    ordenarArticulos(articulos);
+    agregarArticulos(&articulos[0]);
+    imprimirArticulos(&articulos[0]);
+    ordenarArticulos(&articulos[0]);
     return 0;
 }
