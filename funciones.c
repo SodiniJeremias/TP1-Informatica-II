@@ -30,7 +30,7 @@ void cargarArticulos(articulos_t *articulos, int indice)
         printf("Ingrese la cantidad del articulo para la sucursal %d: ", sucursal);
         scanf("%d", &((articulos+indice)->cantidad_sucursal[sucursal-1]));
 
-        articulos[indice].total = 0;
+        (articulos + indice)->total = 0;
 
         for(i=0;i<3;i++) (articulos+indice)->total += (articulos + indice)->cantidad_sucursal[i];
 }
