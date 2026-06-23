@@ -58,8 +58,8 @@ void imprimirArticulos(articulos_t *articulos)
 {
     int i = 0;
     printf("Articulo\tSucursal 1\tSucursal 2\tSucursal 3\tTotal\n");
-    while(i< CANT_ARTICULOS && articulos[i].descripcion[0]){
-    printf("%s\t%d\t%d\t%d\t%d\n", articulos[i].descripcion, articulos[i].cantidad_sucursal[SUCURSAL_1], articulos[i].cantidad_sucursal[SUCURSAL_2], articulos[i].cantidad_sucursal[SUCURSAL_3],articulos[i].total);
+    while(i< CANT_ARTICULOS && (articulos+i)->descripcion[0]){
+    printf("%s\t%d\t%d\t%d\t%d\n", (articulos+i)->descripcion,(articulos+i)->cantidad_sucursal[SUCURSAL_1], (articulos+i)->cantidad_sucursal[SUCURSAL_2], (articulos+i)->cantidad_sucursal[SUCURSAL_3],(articulos+i)->total);
     i++;
     }
 }
@@ -80,9 +80,9 @@ void ordenarArticulos(articulos_t *articulos)
         {
             for ( i = 0; i < CANT_ARTICULOS-1; i++)
             {
-                if (articulos[i].total < articulos[i + 1].total)
+                if ((articulos+i)->total < [(articulos + i) + 1]->total)
                 {
-                    cambiarArticulos(&articulos[i], &articulos[i + 1]);
+                    cambiarArticulos(&(articulos + i), &[(articulos + i)+ 1]);
                 }
             }
             
