@@ -12,10 +12,10 @@ int buscarOCrearArticulos(articulos_t *articulos, char *articulo) //Si no encuen
 {
     int i, articulo_index;
     i=0;
-    while (articulos[i].descripcion[0] && strcmp(articulo, articulos[i].descripcion)) i++;
+    while ((articulos + i)->descripcion[0] && strcmp(articulo, (articulos + i)->descripcion)) i++;
     articulo_index = i;
-    strcpy(articulos[i].descripcion, articulo);
-    printf("\n%s, Indice: %d\n", articulos[articulo_index].descripcion, articulo_index);
+    strcpy((articulos + i)->descripcion, articulo);
+    printf("\n%s, Indice: %d\n", (articulos + articulo_index)->descripcion, articulo_index);
 
     return articulo_index;
 }
@@ -28,11 +28,11 @@ void cargarArticulos(articulos_t *articulos, int indice)
         scanf("%d", &sucursal);
 
         printf("Ingrese la cantidad del articulo para la sucursal %d: ", sucursal);
-        scanf("%d", &articulos[indice].cantidad_sucursal[sucursal-1]);
+        scanf("%d", &((articulos+indice)->cantidad_sucursal[sucursal-1]));
 
         articulos[indice].total = 0;
 
-        for(i=0;i<3;i++) articulos[indice].total += articulos[indice].cantidad_sucursal[i];
+        for(i=0;i<3;i++) (articulos+indice)->total += (articulos + indice)->cantidad_sucursal[i];
 }
 
 void agregarArticulos(articulos_t *articulos)
