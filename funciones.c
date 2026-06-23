@@ -80,9 +80,9 @@ void ordenarArticulos(articulos_t *articulos)
         {
             for ( i = 0; i < CANT_ARTICULOS-1; i++)
             {
-                if ((articulos+i)->total < [(articulos + i) + 1]->total)
+                if ((articulos+i)->total < (articulos + i + 1)->total)
                 {
-                    cambiarArticulos(&(articulos + i), &[(articulos + i)+ 1]);
+                    cambiarArticulos(articulos + i, articulos + i+ 1);
                 }
             }
             
